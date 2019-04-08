@@ -1,0 +1,7 @@
+*.iml
+.idea/
+firebase.json
+database.rules.json
+.firebaserc
+.firebase/
+functions/
