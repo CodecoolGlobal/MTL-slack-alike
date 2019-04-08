@@ -14,23 +14,41 @@ function addChannelToDB(channelName) {
 }
 
 function addMessageToChannel(channelName, userName, messageToAdd){
-    let timestamp = new Date();
-    let messageData = {
-        author: userName,
-        time: timestamp,
-        message: messageToAdd
-    };
 
-    let newMessageKey = firebase.database().ref('channels/' + channelName + '/messages/').push().key;
+        let timestamp = new Date();
 
-    let newUpdate = {};
-    newUpdate[newMessageKey] = messageData;
+        let messageData = {
+            author: userName,
+            timestamp: timestamp.getHours() + ':' + timestamp.getMinutes(),
+            message: messageToAdd,
+        };
 
-    return firebase.database().ref('channels/' + channelName + '/messages/').update(newUpdate);
+        let newMessageKey = firebase.database().ref('channels/' + channelName + '/messages/').push().key;
 
+        let newUpdate = {};
+        newUpdate[newMessageKey] = messageData;
+
+        return firebase.database().ref('channels/' + channelName + '/messages/').update(newUpdate);
+}
+
+function addNewMessageHandler(channelName){
+    firebase.database().ref('channels/' + channelName + '/messages/').on('child_added', function (newMessage) {
+        return displayLastMessage(newMessage);
+    })
+}
+
+function displayLastMessage(message){
+        console.log(message.val().message);
+        console.log(message.val().author);
+        console.log(message.val().timestamp);
+        console.log(message.val());
 }
 
 
 // addUserNameToDB("Tatiana");
-// addChannelToDB('animals');
-addMessageToChannel('animals', 'Marek', 'i love lions too!');
+addChannelToDB('weather');
+console.log('channel added');
+addNewMessageHandler('weather');
+console.log('handler added');
+addMessageToChannel('weather', 'Liz', 'i love sun!');
+console.log('final message');
