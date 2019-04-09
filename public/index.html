@@ -1,30 +1,60 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>MTL Login</title>
-  </head>
-  <body>
-  </body>
-  <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-database.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-messaging.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-functions.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-storage.js"></script>
-  <script>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ZTML Login</title>
+    <link rel="stylesheet" href="assets/styles/login.css"/>
+
+</head>
+
+<body>
+
+<div id="background-image"></div>
+
+<section id="primary-login-section">
+
+    <div id="primary-login-container">
+
+        <div id="logo-container">
+            <img src="assets/images/logo/logo.png" alt="ZTML Logo"/>
+        </div>
+
+        <div id="login-form-container">
+            <form id="login-form" method="get" action="#">
+                <label for="user-login-name">Name</label>
+                <input type="text" placeholder="Name" id="user-login-name"/>
+                <button type="submit" id="login-button">Login</button>
+                <button type="submit" id="sign-up-button">Sign up</button>
+            </form>
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+
+<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-messaging.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-functions.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-storage.js"></script>
+<script>
     // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyD9A0VUu5HP-VcJW2qUtdUt7p3s-JH-8cI",
-      authDomain: "mtl-chat.firebaseapp.com",
-      databaseURL: "https://mtl-chat.firebaseio.com",
-      projectId: "mtl-chat",
-      storageBucket: "mtl-chat.appspot.com",
-      messagingSenderId: "718509635861"
+    const config = {
+        apiKey: "AIzaSyD9A0VUu5HP-VcJW2qUtdUt7p3s-JH-8cI",
+        authDomain: "mtl-chat.firebaseapp.com",
+        databaseURL: "https://mtl-chat.firebaseio.com",
+        projectId: "mtl-chat",
+        storageBucket: "mtl-chat.appspot.com",
+        messagingSenderId: "718509635861"
     };
     firebase.initializeApp(config);
   </script>
-  <script src="scripts/test.js"></script>
 </html>
