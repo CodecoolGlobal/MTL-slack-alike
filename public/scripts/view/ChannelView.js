@@ -30,16 +30,28 @@ export default class ChannelView{
     displayOneChannel(channel){
         let listItem = document.createElement('li');
         let channelButton = document.createElement('button');
-        channelButton.classList.add('channel-display');
+
+        listItem.classList.add('channel-display');
+
+        channelButton.classList.add('channel-button');
         channelButton.innerText = channel.channelname;
-        channelButton.dataset.channelname = channel.channelname;
-        channelButton.dataset.owner = channel.owner;
+        // channelButton.dataset.channelname = channel.channelname;
+        // channelButton.dataset.ownerName = channel.owner;
+
         channelButton.onclick = function(){
             this.changeActiveChannelTo(channel.channelname);
             console.log('channel changed to ' + channel.channelname);
         }.bind(this);
 
+        let deleteButton = document.createElement('button');
+        deleteButton.classList.add('channel-delete');
+        deleteButton.innerText = 'DEL';
+        deleteButton.onclick = function(){
+            this.deleteChannel(channel)
+        }.bind(this);
+
         listItem.appendChild(channelButton);
+        listItem.appendChild(deleteButton);
         document.getElementById('channels-list').appendChild(listItem);
     }
 
@@ -111,6 +123,19 @@ export default class ChannelView{
     }
 
 
+    /*
+    ========================================
+    Delete Channel
+    ========================================
+    */
 
-
+    deleteChannel(channel) {
+        console.log(channel);
+        console.log(this.user.name);
+        if (channel.owner.name === this.user.name) {
+            return firebase.database().ref('channels/').child(channel.channelname).remove();
+        } else {
+            alert('Available only for channel creator')
+        }
+    }
 }
