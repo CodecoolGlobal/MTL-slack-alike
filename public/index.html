@@ -26,9 +26,7 @@
         <div id="login-form-container">
             <form id="login-form" method="get" action="#">
                 <label for="user-login-name">Name</label>
-                <input type="text" placeholder="Name" id="user-login-name"/>
-                <button type="submit" id="login-button">Login</button>
-                <button type="submit" id="sign-up-button">Sign up</button>
+                <button onclick="signInWithGoogle()" type="submit" id="login-button">Sign in with Google</button>
             </form>
         </div>
 
@@ -46,16 +44,17 @@
 <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-messaging.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-functions.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-storage.js"></script>
-<script>
-    // Initialize Firebase
-    const config = {
-        apiKey: "AIzaSyD9A0VUu5HP-VcJW2qUtdUt7p3s-JH-8cI",
-        authDomain: "mtl-chat.firebaseapp.com",
-        databaseURL: "https://mtl-chat.firebaseio.com",
-        projectId: "mtl-chat",
-        storageBucket: "mtl-chat.appspot.com",
-        messagingSenderId: "718509635861"
-    };
-    firebase.initializeApp(config);
-  </script>
+<!--<script>-->
+    <!--// Initialize Firebase-->
+    <!--const config = {-->
+        <!--apiKey: "AIzaSyD9A0VUu5HP-VcJW2qUtdUt7p3s-JH-8cI",-->
+        <!--authDomain: "mtl-chat.firebaseapp.com",-->
+        <!--databaseURL: "https://mtl-chat.firebaseio.com",-->
+        <!--projectId: "mtl-chat",-->
+        <!--storageBucket: "mtl-chat.appspot.com",-->
+        <!--messagingSenderId: "718509635861"-->
+    <!--};-->
+    <!--firebase.initializeApp(config);-->
+  <!--</script>-->
+<script src="scripts/auth.js"></script>
 </html>
