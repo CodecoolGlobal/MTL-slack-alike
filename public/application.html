@@ -31,26 +31,26 @@
 
     <section id="flex-container-chat">
 
-        <div id="channels">Channels</div>
+        <div id="channels">Channels<button type="button" id="new-channel-button">Add New</button></div>
 
         <div id="messages">
 
             <div id="message-history">
 
-                <div id="message">
+<!--                <div id="message">-->
 
-                    <div id="flex-container-name-time">
-                        <p>UserName</p>
+<!--                    <div id="flex-container-name-time">-->
+<!--                        <p>UserName</p>-->
 
-                        <p>Time</p>
-                    </div>
+<!--                        <p>Time</p>-->
+<!--                    </div>-->
 
-                    <div>
-                        <p>Message</p>
-                    </div>
+<!--                    <div>-->
+<!--                        <p>Message</p>-->
+<!--                    </div>-->
 
 
-                </div>
+<!--                </div>-->
 
 
             </div>
@@ -83,5 +83,19 @@
 <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-messaging.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-functions.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-storage.js"></script>
+
+<script>
+    // Initialize Firebase
+    const config = {
+        apiKey: "AIzaSyD9A0VUu5HP-VcJW2qUtdUt7p3s-JH-8cI",
+        authDomain: "mtl-chat.firebaseapp.com",
+        databaseURL: "https://mtl-chat.firebaseio.com",
+        projectId: "mtl-chat",
+        storageBucket: "mtl-chat.appspot.com",
+        messagingSenderId: "718509635861"
+    };
+    firebase.initializeApp(config);
+</script>
+<script type="module" src="scripts/controller/ChannelController.js"></script>
 
 </html>
