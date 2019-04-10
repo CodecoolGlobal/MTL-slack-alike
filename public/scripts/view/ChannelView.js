@@ -43,7 +43,6 @@ export default class ChannelView{
 
         let channelContainer = document.getElementsByClassName('channel-display');
         for (let channel of channelContainer){
-            console.log(channel);
             channel.parentNode.removeChild(channel);
         }
         return
@@ -52,10 +51,39 @@ export default class ChannelView{
 
     registerNewChannelButtonEvent(){
         let button = document.getElementById('new-channel-button');
-        let userName = 'Marek';
-        let channelName = 'music';
 
-        button.onclick = function(){this.addNewChannel(channelName, userName)}.bind(this);
-        // button.addEventListener('click', this.addNewChannel(channelName, userName));
+        let owner = 'Marek'; // this should be passed as an argument
+
+        button.onclick = function(){
+            this.getNewChannelName().then(function (channelName) {
+                if (channelName !== "") {this.addNewChannel(channelName, owner)}
+            }.bind(this))
+        }.bind(this);
     }
+
+    getNewChannelName() {
+        let newName = prompt("Channel name:");
+        return this.checkIfChannelNameIsDuplicate(newName).then(
+            function (isDuplicate) {
+                if (isDuplicate){
+                    alert('This name already exists');
+                    return "";
+                } else {
+                    return newName;
+                }
+            }
+        )
+    }
+
+    checkIfChannelNameIsDuplicate(newName) {
+        let allChannels = [];
+        return firebase.database().ref('channels').once("value").then(function (snap) {
+            for (let key in snap.val()){
+                allChannels.push(snap.val()[key].channelname);
+            }
+            console.log(allChannels);
+            return allChannels.includes(newName);
+        });
+    }
+
 }
