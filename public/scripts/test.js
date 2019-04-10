@@ -42,5 +42,5 @@ function displayLastMessage(message){
 
 // addUserNameToDB("Ziemo");
 // addChannelToDB('golf');
-addNewMessageHandler('golf');
+// addNewMessageHandler('golf');
 // addMessageToChannel('golf', 'Ziemo', 'i love golf too!');
