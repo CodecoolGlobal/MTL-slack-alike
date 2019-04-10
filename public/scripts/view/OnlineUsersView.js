@@ -9,21 +9,23 @@ const config = {
 };
 firebase.initializeApp(config);
 
-export class OnlineUsersView {
+export default class OnlineUsersView {
     constructor(userName) {
         this.userName = userName;
     }
 
-    getOnlineUsers() {
+    displayOnlineUsers() {
+        let membersOnline = document.getElementById("members");
+        let users = firebase.database().ref("users/");
+        let userName;
 
+        users.on("value", function (data) {
+            data.forEach(function (data) {
+                userName = document.createElement("p");
+                userName.setAttribute("class", "online");
+                userName.textContent = data.val().name;
+                membersOnline.appendChild(userName);
+            });
+        });
     }
-
-    // addUserToPanel(userName) {
-    //     let usersContainer = document.getElementById("members");
-    //     let userOnline = document.createElement("div");
-    //     userOnline.setAttribute("class", "user-online");
-    //     userOnline.textContent = userName;
-    //     usersContainer.appendChild(userOnline);
-    // }
 }
-
