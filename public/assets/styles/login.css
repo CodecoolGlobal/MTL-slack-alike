@@ -20,7 +20,7 @@
     background-image: url("../images/background/login-background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    filter: blur(3px);
+    filter: blur(8px);
     position: fixed;
     z-index: -1;
     height: 100%;
@@ -50,7 +50,7 @@ input::placeholder,
 input[type="text"] {
     text-align: center;
     vertical-align: center;
-    color: #93af56;
+    color: #6f8471;
 }
 
 /* login section */
@@ -71,7 +71,7 @@ input[type="text"] {
 }
 
 #logo-container img:hover {
-    box-shadow: 0 0 17px 7px rgba(243,242,200,1);
+    box-shadow: 0 0 17px 7px rgb(238, 238, 238);
 }
 
 /* login form */
@@ -86,16 +86,16 @@ input[type="text"] {
     margin: 15px auto;
     width: 70%;
     height: 45px;
-    outline-color: #93af56;
+    outline-color: #6f8471;
 }
 
 #login-form input {
-    color: #93af56;
+    color: #6f8471;
 }
 
 #login-form button {
     background-color: #2e3732;
-    color: #f3f2c8;
+    color: #eeeeee;
     outline: none;
     box-shadow:
             0 2px 5px rgba(0, 0, 0, 0.5),
@@ -109,5 +109,5 @@ input[type="text"] {
 
 #login-form button:hover {
     cursor: pointer;
-    background-color: #93af56;
+    background-color: #6f8471;
 }
