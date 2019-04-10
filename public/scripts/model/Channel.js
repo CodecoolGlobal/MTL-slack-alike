@@ -5,6 +5,4 @@ export class Message{
         this.text = text;
         this.timestamp = new Date();
     }
-
-
 }
