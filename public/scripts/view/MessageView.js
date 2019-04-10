@@ -1,13 +1,13 @@
-
-const config = {
-    apiKey: "AIzaSyD9A0VUu5HP-VcJW2qUtdUt7p3s-JH-8cI",
-    authDomain: "mtl-chat.firebaseapp.com",
-    databaseURL: "https://mtl-chat.firebaseio.com",
-    projectId: "mtl-chat",
-    storageBucket: "mtl-chat.appspot.com",
-    messagingSenderId: "718509635861"
-};
-firebase.initializeApp(config);
+//
+// const config = {
+//     apiKey: "AIzaSyD9A0VUu5HP-VcJW2qUtdUt7p3s-JH-8cI",
+//     authDomain: "mtl-chat.firebaseapp.com",
+//     databaseURL: "https://mtl-chat.firebaseio.com",
+//     projectId: "mtl-chat",
+//     storageBucket: "mtl-chat.appspot.com",
+//     messagingSenderId: "718509635861"
+// };
+// firebase.initializeApp(config);
 
 //delete it later
 $( document ).ready(function() {
@@ -83,12 +83,13 @@ function showMessagesInChannel(channelName) {
             let messageContainer = document.getElementById('message-history');
 
             let newMessage = document.createElement('div');
-            newMessage.setAttribute('id', 'message');
+            // newMessage.className = 'message';
+            newMessage.setAttribute('class', 'message');
             messageContainer.appendChild(newMessage);
 
 
             let userNameAndTime = document.createElement('div');
-            userNameAndTime.setAttribute('id', 'flex-container-name-time');
+            userNameAndTime.setAttribute('class', 'flex-container-name-time');
 
             newMessage.appendChild(userNameAndTime);
 
@@ -109,5 +110,10 @@ function showMessagesInChannel(channelName) {
             userMessage.appendChild(messageContent);
         });
     });
+}
+
+function clearMessages() {
+    let allMessagesContainer = document.getElementById('message-history');
+    allMessagesContainer.innerHTML = '';
 
 }

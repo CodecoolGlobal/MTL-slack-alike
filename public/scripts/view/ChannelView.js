@@ -35,8 +35,9 @@ export default class ChannelView{
         channelButton.dataset.channelname = channel.channelname;
         channelButton.dataset.owner = channel.owner;
         channelButton.onclick = function(){
-
-        }
+            this.changeActiveChannelTo(channel.channelname);
+            console.log('channel changed to ' + channel.channelname);
+        }.bind(this);
 
         listItem.appendChild(channelButton);
         document.getElementById('channels-list').appendChild(listItem);
@@ -107,6 +108,11 @@ export default class ChannelView{
 
     changeActiveChannelTo(channelName){
         this.user.activeChannel = channelName;
+        clearMessages();
+        showMessagesInChannel(channelName);
     }
+
+
+
 
 }
