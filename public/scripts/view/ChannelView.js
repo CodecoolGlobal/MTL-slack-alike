@@ -18,9 +18,9 @@ export default class ChannelView{
     }
 
     displayChannels(){
-        this.clearChannels();
+        // this.clearChannels();
         return firebase.database().ref('channels/').once('value').then(function (snap) {
-            this.clearChannels();
+            // this.clearChannels();
             for (let key in snap.val()){
                 let channel = snap.val()[key];
                 this.displayOneChannel(channel);
@@ -44,10 +44,8 @@ export default class ChannelView{
     }
 
     clearChannels(){
-        let channelContainer = document.getElementsByClassName('channel-display');
-        for (let channel of channelContainer){
-            channel.parentNode.removeChild(channel);
-        }
+        let channelContainer = document.getElementById('channels-list');
+        channelContainer.innerHTML = '';
     }
 
     /*
