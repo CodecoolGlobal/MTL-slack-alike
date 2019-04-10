@@ -12,7 +12,8 @@
 //delete it later
 $( document ).ready(function() {
     // addMassagesOnPage('running');
-    showMessagesInChannel('running')
+    showMessagesInChannel('running');
+    loadEventListenerForTextarea();
 });
 
 // $( window ).on( "load", function() {});
@@ -116,4 +117,17 @@ function clearMessages() {
     let allMessagesContainer = document.getElementById('message-history');
     allMessagesContainer.innerHTML = '';
 
+}
+
+function loadEventListenerForTextarea() {
+    let inputMessage = document.getElementById('primary-text-area');
+    inputMessage.addEventListener("keypress", keyPressed);
+}
+
+function keyPressed(k) {
+    if (k.keyCode == 13) {
+        let inputMessage = document.getElementById('primary-text-area').value;
+        addMessageToChannel('running', 'Marek', inputMessage);
+        document.getElementById('primary-text-area').value = "";
+    }
 }
