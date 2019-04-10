@@ -5,4 +5,16 @@ export default class User {
         this.isOnline = true;
         this.activeChannel = null;
     }
+
+    getName() {
+        return this.name;
+    }
+
+    getId() {
+        return this.id;
+    }
+
+    getActiveChannel() {
+        return this.activeChannel;
+    }
 }
