@@ -5,9 +5,6 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
     <title>MTL Chat</title>
     <link rel="stylesheet" type="text/css" href="assets/styles/application.css"/>
-    <script type='text/javascript' src="scripts/view/MessageView.js" defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
 </head>
 <body>
 
@@ -23,39 +20,15 @@
 
     <section id="flex-container-chat">
 
-        <div id="channels">
-            <p id="channels-header">Channels</p>
-            <button type="button" id="new-channel-button">Add New</button>
-            <ul id="channels-list"></ul>
-        </div>
+        <div id="channels">Channels<button type="button" id="new-channel-button">Add New</button></div>
 
         <div id="messages">
 
-            <div id="message-history">
+            <div>Message</div>
 
-<!--                <div id="message">-->
+            <div>Message</div>
 
-<!--                    <div id="flex-container-name-time">-->
-<!--                        <p>UserName</p>-->
-
-<!--                        <p>Time</p>-->
-<!--                    </div>-->
-
-<!--                    <div>-->
-<!--                        <p>Message</p>-->
-<!--                    </div>-->
-
-
-<!--                </div>-->
-
-
-            </div>
-
-            <div><textarea id="primary-text-area"></textarea></div>
-
-<!--            <button onclick="addMessageToChannel('books', 'Tatiana', 'I adore reading books!')">add message</button>-->
-<!--            <button onclick="addMessageToChannel('running', 'Tatiana', 'I adore running!')">add message</button>-->
-<!--            <button onclick="addMessageToChannel('running', 'Liz', 'I adore running fast!')">add message</button>-->
+            <div><textarea></textarea></div>
 
         </div>
 
@@ -70,7 +43,6 @@
     </footer>
 
 </body>
-
 <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-auth.js"></script>
@@ -79,19 +51,19 @@
 <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-messaging.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-functions.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-storage.js"></script>
-
-<script>
-    // Initialize Firebase
-    const config = {
-        apiKey: "AIzaSyD9A0VUu5HP-VcJW2qUtdUt7p3s-JH-8cI",
-        authDomain: "mtl-chat.firebaseapp.com",
-        databaseURL: "https://mtl-chat.firebaseio.com",
-        projectId: "mtl-chat",
-        storageBucket: "mtl-chat.appspot.com",
-        messagingSenderId: "718509635861"
-    };
-    firebase.initializeApp(config);
-</script>
+<!--<script>-->
+<!--    // Initialize Firebase-->
+<!--    const config = {-->
+<!--        apiKey: "AIzaSyD9A0VUu5HP-VcJW2qUtdUt7p3s-JH-8cI",-->
+<!--        authDomain: "mtl-chat.firebaseapp.com",-->
+<!--        databaseURL: "https://mtl-chat.firebaseio.com",-->
+<!--        projectId: "mtl-chat",-->
+<!--        storageBucket: "mtl-chat.appspot.com",-->
+<!--        messagingSenderId: "718509635861"-->
+<!--    };-->
+<!--    firebase.initializeApp(config);-->
+<!--</script>-->
 <script type="module" src="scripts/controller/ChannelController.js"></script>
+<script type="module" src="scripts/controller/OnlineUsersController.js"></script>
 
 </html>
