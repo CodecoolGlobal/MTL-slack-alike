@@ -28,7 +28,7 @@ function addUserToDb(user) {
     return firebase.database().ref('users/'+user.id).set(
         {
             name: user.name,
-            isOnline: false
+            isOnline: true
         }
     )
 }
