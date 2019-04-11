@@ -93,15 +93,17 @@ textarea {
     width: 55%;
     height: 5%;
     border-left: 2px solid #ffa100;
-    padding: 5px;
+    padding: 8px;
     font-size: 16px;
     resize: none;
     position: fixed;
     bottom: 28px;
     outline: none;
     background-color: rgba(115, 127, 142, 0.66);
+    /*background-color: #393e46;*/
     color: #ededed;
     box-shadow: 0 8px 9px 0 rgba(0,0,0,0.75);
+    /*box-shadow: inset 2px -1px 10px 1px rgba(0,0,0,0.75);*/
 }
 
 .flex-container-name-time {
@@ -268,7 +270,7 @@ Members & Channels
             0 20px 20px rgba(255, 255, 255, 0.05) inset;
 }
 
-p.online:hover {
+#members-list li:hover {
     cursor: default;
 }
 
