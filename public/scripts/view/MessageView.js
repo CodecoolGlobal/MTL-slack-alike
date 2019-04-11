@@ -24,7 +24,8 @@ function addMessageToChannel(channelName, userName, messageToAdd){
     let timestamp = new Date();
     let messageData = {
         author: userName,
-        timestamp: timestamp.getHours() + ':' + timestamp.getMinutes() + timestamp.getDate(),
+        time: timestamp.getHours() + ':' + timestamp.getMinutes() + ', ' + timestamp.getUTCDate() + '.0'
+            + (timestamp.getUTCMonth() + 1) + '.' + timestamp.getFullYear(),
         message: messageToAdd,
     };
     let newMessageKey = firebase.database().ref('channels/' + channelName + '/messages/').push().key;
@@ -99,7 +100,7 @@ function showMessagesInChannel(channelName) {
             userNameAndTime.appendChild(userName);
 
             let userMessageTime = document.createElement('p');
-            userMessageTime.textContent = message.timestamp;
+            userMessageTime.textContent = message.time;
 
 
             userNameAndTime.appendChild(userMessageTime);
