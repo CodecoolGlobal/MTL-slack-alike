@@ -1,14 +1,3 @@
-//
-// const config = {
-//     apiKey: "AIzaSyD9A0VUu5HP-VcJW2qUtdUt7p3s-JH-8cI",
-//     authDomain: "mtl-chat.firebaseapp.com",
-//     databaseURL: "https://mtl-chat.firebaseio.com",
-//     projectId: "mtl-chat",
-//     storageBucket: "mtl-chat.appspot.com",
-//     messagingSenderId: "718509635861"
-// };
-// firebase.initializeApp(config);
-
 //delete it later
 $( document ).ready(function() {
     // addMassagesOnPage('running');
@@ -16,15 +5,14 @@ $( document ).ready(function() {
     loadEventListenerForTextarea();
 });
 
-// $( window ).on( "load", function() {});
-
 
 function addMessageToChannel(channelName, userName, messageToAdd){
 
     let timestamp = new Date();
     let messageData = {
         author: userName,
-        timestamp: timestamp.getHours() + ':' + timestamp.getMinutes() + timestamp.getDate(),
+        time: timestamp.getHours() + ':' + timestamp.getMinutes() + ', ' + timestamp.getUTCDate() + '.0'
+            + (timestamp.getUTCMonth() + 1) + '.' + timestamp.getFullYear(),
         message: messageToAdd,
     };
     let newMessageKey = firebase.database().ref('channels/' + channelName + '/messages/').push().key;
@@ -99,7 +87,7 @@ function showMessagesInChannel(channelName) {
             userNameAndTime.appendChild(userName);
 
             let userMessageTime = document.createElement('p');
-            userMessageTime.textContent = message.timestamp;
+            userMessageTime.textContent = message.time;
 
 
             userNameAndTime.appendChild(userMessageTime);
