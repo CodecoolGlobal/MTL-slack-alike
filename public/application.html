@@ -5,6 +5,8 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
     <title>MTL Chat</title>
     <link rel="stylesheet" type="text/css" href="assets/styles/application.css"/>
+    <script type='text/javascript' src="scripts/view/MessageView.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 </head>
 <body>
 
@@ -20,15 +22,21 @@
 
     <section id="flex-container-chat">
 
-        <div id="channels">Channels<button type="button" id="new-channel-button">Add New</button></div>
+        <div id="channels">
+            <p id="channels-header">Channels</p>
+            <button type="button" id="new-channel-button">Add New</button>
+            <ul id="channels-list"></ul>
+        </div>
 
         <div id="messages">
 
-            <div>Message</div>
+            <div id="message-history">
 
             <div>Message</div>
 
-            <div><textarea></textarea></div>
+            <div>Message</div>
+
+            </div>
 
         </div>
 
@@ -64,4 +72,6 @@
     firebase.initializeApp(config);
 </script>
 <script type="module" src="scripts/controller/ChannelController.js"></script>
+<script type="module" src="scripts/controller/OnlineUsersController.js"></script>
+
 </html>

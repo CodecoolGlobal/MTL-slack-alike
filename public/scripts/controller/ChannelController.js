@@ -1,8 +1,6 @@
 import ChannelView from "../view/ChannelView.js";
+import User from "../model/User.js";
 
-let channelView = new ChannelView();
+let myUser = new User('Miki');
 
-// channelView.displayChannels();
-// channelView.addNewChannel('animals', 'Liz');
-
-// channelView.clearChannels();
+let channelView = new ChannelView(myUser);
