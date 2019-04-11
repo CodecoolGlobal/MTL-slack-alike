@@ -16,8 +16,8 @@ export default class MessageView {
         let timestamp = new Date();
         let messageData = {
             author: userName,
-            time: timestamp.getHours() + ':' + timestamp.getMinutes() + ', ' + timestamp.getUTCDate() + '.0'
-                + (timestamp.getUTCMonth() + 1) + '.' + timestamp.getFullYear(),
+            time: timestamp.getHours() + ':' + this.addZero(timestamp.getMinutes()) + ', ' + timestamp.getUTCDate() + '.'
+                + this.addZero((timestamp.getUTCMonth() + 1)) + '.' + timestamp.getFullYear(),
             message: messageToAdd,
         };
         let newMessageKey = firebase.database().ref('channels/' + channelName + '/messages/').push().key;
@@ -25,6 +25,13 @@ export default class MessageView {
         newUpdate[newMessageKey] = messageData;
 
         return firebase.database().ref('channels/' + channelName + '/messages/').update(newUpdate);
+    }
+
+    addZero(number) {
+        if(number < 10) {
+            return '0' + number;
+        }
+        return number;
     }
 
 
