@@ -1,22 +1,9 @@
-//
-// const config = {
-//     apiKey: "AIzaSyD9A0VUu5HP-VcJW2qUtdUt7p3s-JH-8cI",
-//     authDomain: "mtl-chat.firebaseapp.com",
-//     databaseURL: "https://mtl-chat.firebaseio.com",
-//     projectId: "mtl-chat",
-//     storageBucket: "mtl-chat.appspot.com",
-//     messagingSenderId: "718509635861"
-// };
-// firebase.initializeApp(config);
-
 //delete it later
 $( document ).ready(function() {
     // addMassagesOnPage('running');
     showMessagesInChannel('running');
     loadEventListenerForTextarea();
 });
-
-// $( window ).on( "load", function() {});
 
 
 function addMessageToChannel(channelName, userName, messageToAdd){
