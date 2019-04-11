@@ -42,6 +42,7 @@ export default class ChannelView{
     displayOneChannel(channel){
         let listItem = document.createElement('li');
         let channelButton = document.createElement('div');
+        channelButton.addEventListener("click", setChannelAsActive);
 
         listItem.classList.add('channel-display');
 
