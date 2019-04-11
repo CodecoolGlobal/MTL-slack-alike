@@ -25,13 +25,14 @@ function setUserIdCookie(userId) {
 }
 
 function addUserToDb(user) {
-    firebase.database().ref('users/'+user.id).set(
+    return firebase.database().ref('users/'+user.id).set(
         {
             name: user.name,
             isOnline: false
         }
     )
 }
+
 
 function signInWithGoogle() {
     var provider = new firebase.auth.GoogleAuthProvider();
@@ -48,8 +49,12 @@ function signInWithGoogle() {
             isOnline: true
         };
         setUserIdCookie(user.uid);
-        addUserToDb(userToAdd);
-        window.location = 'application.html';
+        addUserToDb(userToAdd).then(
+            function changePage() {
+                window.location = 'application.html';
+            }
+        );
+        //;
         // ...
     }).catch(function(error) {
         console.log("It doesnt work");
