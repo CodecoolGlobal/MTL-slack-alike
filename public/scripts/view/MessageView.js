@@ -97,6 +97,7 @@ function showMessagesInChannel(channelName) {
             let messageContent = document.createElement('p');
             messageContent.textContent = message.message;
             userMessage.appendChild(messageContent);
+            window.scrollTo(0,document.querySelector("message-history").scrollHeight);
         });
     });
 }
