@@ -67,6 +67,7 @@ export default class MessageView {
                 messageContainer.setAttribute('class', 'user-message');
                 messageContent.textContent = message.message;
                 userMessage.appendChild(messageContent);
+                window.scrollTo(0,document.querySelector("message-history").scrollHeight);
             });
         }.bind(this));
     }
@@ -86,7 +87,7 @@ export default class MessageView {
             this.keyPressed(k);
         }.bind(this));
     }
-    
+
     keyPressed(k) {
         if (k.keyCode == 13) {
             k.preventDefault();
@@ -101,4 +102,3 @@ export default class MessageView {
     }
 
 }
-

@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     border: 0;
-    font-size: 100%;
     font: inherit;
     vertical-align: baseline;
 }
@@ -27,7 +26,6 @@ blockquote, q {
 
 blockquote:before, blockquote:after,
 q:before, q:after {
-    content: '';
     content: none;
 }
 
@@ -35,11 +33,24 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
+/*
+========================================
+Main Layout
+========================================
+*/
+
+body, html {
+    height: 100%;
+    overflow: hidden;
+}
+
 /*
 ========================================
 Content : channels; messages; users
 ========================================
 */
+
 #flex-container-chat {
     list-style: none;
     display: flex;
@@ -57,39 +68,42 @@ Content : channels; messages; users
 
 #messages {
     flex: 3;
-    margin: 0px 20px;
+    padding: 0 20px;
 }
 
 #members {
     flex: 1;
 }
 
-
-
 /*
 ========================================
 Messages
 ========================================
 */
-#message-history {
-
-}
 
 .message {
-    padding-bottom: 20px;
+    padding: 20px 5px;
 }
+
 .message p {
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 textarea {
-    display: block;
-    width: 90%;
-    height: 20px;
-    border: 2px solid #000000;
+    width: 55%;
+    height: 5%;
+    border-left: 2px solid #ffa100;
     padding: 5px;
     font-size: 16px;
+    resize: none;
+    position: fixed;
+    bottom: 28px;
+    outline: none;
+    background-color: rgba(115, 127, 142, 0.66);
+    color: #ededed;
+    box-shadow: 0 8px 9px 0 rgba(0,0,0,0.75);
 }
+
 .flex-container-name-time {
     list-style: none;
     display: flex;
@@ -103,22 +117,195 @@ textarea {
     padding-right: 7px;
 }
 
+.user-name {
+    font-weight: bold;
+    color: #ffa100;
+}
+
+.user-time {
+    font-size: 12px;
+}
+
+.user-message,
+textarea {
+    font-size: 16px;
+    font-weight: 100;
+    font-family: 'Rokkitt', serif;;
+}
+
+/*
+========================================
+Logo
+========================================
+*/
+
+#logo-container {
+    background-color: #2e3732;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.75);
+}
+
+#logo-container img {
+    width: 3%;
+    display: block;
+    margin: auto;
+    transition: transform .2s;
+}
+
+#logo-container img:hover {
+    transform: scale(1.3);
+    position: relative;
+    z-index: 2;
+}
+
+/*
+========================================
+Sections
+========================================
+*/
+
+#channels,
+#members,
+#messages {
+    color: #ededed;
+    height: 100vh;
+}
+
+#members,
+#channels {
+    text-align: center;
+    padding-top: 5px;
+    background-color: #2e3732;
+}
+
+/*
+========================================
+Messages
+========================================
+*/
+
+div #message-history {
+    overflow: auto;
+    max-height: 84vh;
+}
+
+#messages {
+    background-color: #393e46;
+    z-index: 0;
+    box-shadow: inset -1px -4px 7px 3px rgba(0,0,0,0.75);
+}
+
+/*
+========================================
+Members & Channels
+========================================
+*/
+
+#members,
+#channels {
+    line-height: 2.5;
+}
+
+#members-list,
+#channels-list {
+    overflow: auto;
+}
+
+#members-header,
+#channels-header {
+    background-color: #6f8471;
+    color: #ededed;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#channels-header {
+    padding-left: 3%;
+}
+
+#channels-list li div,
+#new-channel-button,
+#members-list li {
+    display: block;
+    width: 80%;
+    background-color: rgba(98, 116, 106, 0.63);
+    margin: 10px auto;
+    border-radius: 8px;
+    color: #ededed;
+    outline: none;
+    font-family: 'Rokkitt', serif;
+    font-size: 17px;
+}
+
+#new-channel-button {
+    background-color: #6f8471;
+    font-weight: bold;
+    outline: none;
+    box-shadow:
+            0 2px 5px rgba(0, 0, 0, 0.5),
+            0 1px 0 rgba(255, 255, 255, 0.25) inset,
+            0 0 0 rgba(0, 0, 0, 0.25) inset,
+            0 20px 0 rgba(255, 255, 255, 0.03) inset,
+            0 -20px 20px rgba(0, 0, 0, 0.15) inset,
+            0 20px 20px rgba(255, 255, 255, 0.05) inset;
+    transition: all 0.4s linear 0s;
+}
+
+#new-channel-button:hover {
+    cursor: pointer;
+    background-color: #ffa100;
+}
+
+#channels-list li div:hover {
+    cursor: pointer;
+    box-shadow:
+            0 2px 5px rgba(0, 0, 0, 0.5),
+            0 1px 0 rgba(255, 255, 255, 0.25) inset,
+            0 0 0 rgba(0, 0, 0, 0.25) inset,
+            0 20px 0 rgba(255, 255, 255, 0.03) inset,
+            0 -20px 20px rgba(0, 0, 0, 0.15) inset,
+            0 20px 20px rgba(255, 255, 255, 0.05) inset;
+}
+
+p.online:hover {
+    cursor: default;
+}
+
+/* Delete button */
+
+.channel-button {
+    display: inline-block;
+    position: relative;
+}
+
+span.channel-delete {
+    font-weight: bold;
+    color: #ffa100;
+    position: absolute;
+    left: -5px;
+    bottom: 20px;
+}
+
+span.channel-delete:hover {
+    cursor: pointer;
+    color: #ededed;
+}
+
 /*
 ========================================
 Footer
 ========================================
 */
+
 footer {
     width: 100%;
     position: fixed;
-    bottom: 0px;
+    bottom: 0;
+    padding: 5px;
+    background-color: #6f8471;
+    color: #ededed;
 }
 footer p {
     text-align: center;
 }
-
-
-
-
-
-
