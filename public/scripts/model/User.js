@@ -1,9 +1,9 @@
 export default class User {
-    constructor(name) {
+    constructor(name, id) {
         this.name = name;
-        this.id = null;
+        this.id = id;
         this.isOnline = true;
-        this.activeChannel = null;
+        this.activeChannel = 'Octo Welcome';
     }
 
     getName() {

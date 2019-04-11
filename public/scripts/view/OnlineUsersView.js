@@ -4,17 +4,26 @@ export default class OnlineUsersView {
     }
 
     displayOnlineUsers() {
-        let membersOnline = document.getElementById("members");
+        let membersOnline = document.getElementById("members-list");
         let users = firebase.database().ref("users/");
         let userName;
 
         users.on("value", function (data) {
-            data.forEach(function (data) {
-                userName = document.createElement("p");
-                userName.setAttribute("class", "online");
-                userName.textContent = data.val().name;
-                membersOnline.appendChild(userName);
+            this.clearMembers();
+            data.forEach(function (memberData) {
+                if(memberData.val().isOnline) {
+                    userName = document.createElement("li");
+                    userName.setAttribute("class", "online");
+                    userName.textContent = memberData.val().name;
+                    membersOnline.appendChild(userName);
+                }
             });
-        });
+        }.bind(this));
     }
+
+    clearMembers(){
+        document.getElementById('members-list').innerHTML = '';
+    }
+
+
 }

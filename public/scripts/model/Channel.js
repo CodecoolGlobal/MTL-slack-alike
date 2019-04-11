@@ -3,4 +3,12 @@ export default class Channel{
         this.name = name;
         this.owner = owner;
     }
+
+    getName() {
+        return this.name;
+    }
+
+    getOwner() {
+        return this.owner;
+    }
 }
