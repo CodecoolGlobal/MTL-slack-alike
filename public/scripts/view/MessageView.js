@@ -67,7 +67,6 @@ export default class MessageView {
                 messageContainer.setAttribute('class', 'user-message');
                 messageContent.textContent = message.message;
                 userMessage.appendChild(messageContent);
-                window.scrollTo(0,document.querySelector("message-history").scrollHeight);
             });
         }.bind(this));
     }
