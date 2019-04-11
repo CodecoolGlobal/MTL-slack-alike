@@ -89,10 +89,14 @@ export default class MessageView {
     
     keyPressed(k) {
         if (k.keyCode == 13) {
+            k.preventDefault();
             let inputMessage = document.getElementById('primary-text-area').value;
-            this.addMessageToChannel(inputMessage).then(function () {
-            });
-            document.getElementById('primary-text-area').value = "";
+            if (inputMessage.trim().length) {
+                this.addMessageToChannel(inputMessage).then(function () {
+                });
+                document.getElementById('primary-text-area').value = "";
+            }
+
         }
     }
 
