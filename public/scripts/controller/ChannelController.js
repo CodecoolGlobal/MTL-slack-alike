@@ -1,6 +1,9 @@
 import ChannelView from "../view/ChannelView.js";
-import User from "../model/User.js";
+import {getCurrentUserPromise} from "./currentUserController.js";
 
-let myUser = new User('Miki');
+getCurrentUserPromise().then(function (result) {
 
-let channelView = new ChannelView(myUser);
+    let channelView = new ChannelView(result);
+    console.log(channelView.user.id);
+    console.log(channelView.user.name);
+});

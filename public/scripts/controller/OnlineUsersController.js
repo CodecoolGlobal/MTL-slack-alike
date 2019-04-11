@@ -1,7 +1,8 @@
 import OnlineUsersView from "../view/OnlineUsersView.js";
-import User from "../model/User.js";
+import {getCurrentUserPromise} from "./currentUserController.js";
 
-let user = new User("Liz");
-let onlineUsers = new OnlineUsersView(user);
+getCurrentUserPromise().then(function (result) {
+    let onlineUsers = new OnlineUsersView(result);
+    onlineUsers.displayOnlineUsers();
+});
 
-onlineUsers.displayOnlineUsers();

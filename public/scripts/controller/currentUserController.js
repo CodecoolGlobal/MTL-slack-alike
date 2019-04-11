@@ -1,3 +1,5 @@
+import User from "../model/User.js";
+
 function getCookie(name) {
     let value = "; " + document.cookie;
     let parts = value.split("; " + name + "=");
@@ -8,19 +10,15 @@ function getCurrentUserId() {
     return getCookie("userid");
 }
 
-function getCurrentUserPromise() {
-    firebase.auth().userId();
-    let userData;
+export function getCurrentUserPromise() {
     let userInfo;
     const currentUserId = getCurrentUserId();
-    promise = firebase.database().ref('users/' + currentUserId).once(
+    let promise = firebase.database().ref('users/' + currentUserId).once('value').then(
         function(snap) {
             userInfo = snap.val();
-            userData = {
-                userId: currentUserId,
-                userName: userInfo.name,
-                isOnline: true
-            }
+            let newUser = new User(userInfo.name, currentUserId);
+
+            return newUser;
         }
     );
     return promise;
