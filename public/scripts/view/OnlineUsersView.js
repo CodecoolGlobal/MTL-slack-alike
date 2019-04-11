@@ -10,11 +10,13 @@ export default class OnlineUsersView {
 
         users.on("value", function (data) {
             this.clearMembers();
-            data.forEach(function (data) {
-                userName = document.createElement("li");
-                userName.setAttribute("class", "online");
-                userName.textContent = data.val().name;
-                membersOnline.appendChild(userName);
+            data.forEach(function (memberData) {
+                if(memberData.val().isOnline) {
+                    userName = document.createElement("li");
+                    userName.setAttribute("class", "online");
+                    userName.textContent = memberData.val().name;
+                    membersOnline.appendChild(userName);
+                }
             });
         }.bind(this));
     }
