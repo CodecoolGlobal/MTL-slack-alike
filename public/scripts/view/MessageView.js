@@ -71,7 +71,6 @@ export default class MessageView {
             });
         }.bind(this));
     }
-}
 
 
     clearMessages() {
