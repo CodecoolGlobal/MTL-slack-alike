@@ -29,7 +29,7 @@ export default class ChannelView{
 
     displayOneChannel(channel){
         let listItem = document.createElement('li');
-        let channelButton = document.createElement('button');
+        let channelButton = document.createElement('div');
 
         listItem.classList.add('channel-display');
 
@@ -43,15 +43,15 @@ export default class ChannelView{
             console.log('channel changed to ' + channel.channelname);
         }.bind(this);
 
-        let deleteButton = document.createElement('button');
+        let deleteButton = document.createElement('span');
         deleteButton.classList.add('channel-delete');
-        deleteButton.innerText = 'DEL';
+        deleteButton.innerText = 'x';
         deleteButton.onclick = function(){
             this.deleteChannel(channel)
         }.bind(this);
 
         listItem.appendChild(channelButton);
-        listItem.appendChild(deleteButton);
+        channelButton.appendChild(deleteButton);
         document.getElementById('channels-list').appendChild(listItem);
     }
 
