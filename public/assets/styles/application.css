@@ -224,9 +224,9 @@ Members & Channels
     padding-left: 3%;
 }
 
-p.online,
 #channels-list li div,
-#new-channel-button {
+#new-channel-button,
+#members-list li {
     display: block;
     width: 80%;
     background-color: rgba(98, 116, 106, 0.63);
