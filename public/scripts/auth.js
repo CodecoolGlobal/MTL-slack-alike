@@ -49,6 +49,7 @@ function signInWithGoogle() {
         };
         setUserIdCookie(user.uid);
         addUserToDb(userToAdd);
+        window.location = 'application.html';
         // ...
     }).catch(function(error) {
         console.log("It doesnt work");
