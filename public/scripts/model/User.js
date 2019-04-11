@@ -3,7 +3,7 @@ export default class User {
         this.name = name;
         this.id = id;
         this.isOnline = true;
-        this.activeChannel = null;
+        this.activeChannel = 'Octo Welcome';
     }
 
     getName() {

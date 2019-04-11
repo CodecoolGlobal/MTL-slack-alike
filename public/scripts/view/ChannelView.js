@@ -23,11 +23,20 @@ export default class ChannelView{
     displayChannels(){
         // this.clearChannels();
         return firebase.database().ref('channels/').once('value').then(function (snap) {
-            // this.clearChannels();
             for (let key in snap.val()){
                 let channel = snap.val()[key];
                 this.displayOneChannel(channel);
-        }}.bind(this));
+            }
+            return snap;
+        }.bind(this)).then(function (snap) {
+            let allChannels = [];
+            for (let key in snap.val()){
+                allChannels.push(snap.val()[key].channelname);
+            }
+            console.log(allChannels);
+            console.log(this.user.activeChannel);
+            this.handleChannelDeletion(allChannels);
+        }.bind(this));
     }
 
     displayOneChannel(channel){
@@ -38,8 +47,6 @@ export default class ChannelView{
 
         channelButton.classList.add('channel-button');
         channelButton.innerText = channel.channelname;
-        // channelButton.dataset.channelname = channel.channelname;
-        // channelButton.dataset.ownerName = channel.owner;
 
         channelButton.onclick = function(){
             this.changeActiveChannelTo(channel.channelname);
@@ -54,7 +61,9 @@ export default class ChannelView{
         }.bind(this);
 
         listItem.appendChild(channelButton);
-        listItem.appendChild(deleteButton);
+        if (channel.channelname !== 'Octo Welcome') {
+            listItem.appendChild(deleteButton);
+        }
         document.getElementById('channels-list').appendChild(listItem);
     }
 
@@ -62,6 +71,13 @@ export default class ChannelView{
         let channelContainer = document.getElementById('channels-list');
         channelContainer.innerHTML = '';
     }
+
+    handleChannelDeletion(allChannels){
+        if (this.user.activeChannel !== null && !allChannels.includes(this.user.activeChannel))
+            alert('your channel was deleted, join another');
+            this.user.activeChannel = 'Octo Welcome';
+    }
+
 
     /*
     ========================================
@@ -83,7 +99,7 @@ export default class ChannelView{
 
         button.onclick = function(){
             this.getNewChannelName().then(function (channelName) {
-                if (channelName !== "") {this.addNewChannel(channelName, this.user)}
+                if (channelName !== "" && channelName !== null) {this.addNewChannel(channelName, this.user)}
             }.bind(this))
         }.bind(this);
     }

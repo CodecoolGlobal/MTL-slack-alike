@@ -35,7 +35,6 @@ export default class MessageView {
         channelRef.on("value", function (data) {
             this.clearMessages();
             data.forEach(function (data) {
-                console.log("in method show message in for...")
                 let message = data.val();
                 let messageContainer = document.getElementById('message-history');
 
