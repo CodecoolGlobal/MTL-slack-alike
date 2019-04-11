@@ -1,8 +1,11 @@
+import MessageView from "./MessageView.js";
+
 export default class ChannelView{
     constructor(user){
         this.user = user;
         this.registerChannelListeners();
         this.registerNewChannelButtonEvent();
+        this.messageView = new MessageView(user);
     }
 
     /*
@@ -118,8 +121,8 @@ export default class ChannelView{
 
     changeActiveChannelTo(channelName){
         this.user.activeChannel = channelName;
-        clearMessages();
-        showMessagesInChannel(channelName);
+        this.messageView.clearMessages();
+        this.messageView.showMessagesInChannel(channelName);
     }
 
 
