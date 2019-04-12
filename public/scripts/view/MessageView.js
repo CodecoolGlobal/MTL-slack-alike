@@ -75,6 +75,7 @@ export default class MessageView {
                 messageContent.textContent = message.message;
                 userMessage.appendChild(messageContent);
             });
+            this.scrollOutflow();
         }.bind(this));
     }
 
@@ -105,6 +106,12 @@ export default class MessageView {
             }
 
         }
+    }
+
+    scrollOutflow() {
+        let messages = document.getElementById("message-history");
+        messages.scrollTop = messages.scrollHeight;
+        console.log("I scrolled!");
     }
 
 }
