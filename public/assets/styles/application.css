@@ -100,10 +100,8 @@ textarea {
     bottom: 28px;
     outline: none;
     background-color: rgba(115, 127, 142, 0.66);
-    /*background-color: #393e46;*/
     color: #ededed;
-    box-shadow: 0 8px 9px 0 rgba(0,0,0,0.75);
-    /*box-shadow: inset 2px -1px 10px 1px rgba(0,0,0,0.75);*/
+    box-shadow: inset 2px -1px 6px 1px rgba(0,0,0,0.75);
 }
 
 .flex-container-name-time {
