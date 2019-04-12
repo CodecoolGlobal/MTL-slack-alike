@@ -72,9 +72,11 @@ export default class ChannelView{
         listItem.appendChild(channelButton);
         if (channel.channelname !== 'Octo Welcome') {
             channelButton.appendChild(deleteButton);
-        } else {
+        }
+        if (this.user.activeChannel === 'Octo Welcome' && 'Octo Welcome' === channel.channelname){
             channelButton.setAttribute('id', 'active-channel');
         }
+
         document.getElementById('channels-list').appendChild(listItem);
     }
 

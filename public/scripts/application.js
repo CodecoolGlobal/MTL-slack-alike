@@ -24,7 +24,6 @@ function setChannelAsActive() {
     let activeChannel = document.getElementById("active-channel");
         if (activeChannel !== null) {
             activeChannel.removeAttribute("id");
-            activeChannel.removeAttribute("style");
         }
     this.setAttribute("id", "active-channel");
 }
