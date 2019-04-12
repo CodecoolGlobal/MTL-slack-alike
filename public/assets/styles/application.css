@@ -152,6 +152,7 @@ Logo
     width: 3%;
     display: block;
     margin: auto;
+    padding: 5px;
     transition: transform .2s;
 }
 
@@ -226,7 +227,7 @@ Members & Channels
     padding-left: 3%;
 }
 
-#channels-list li div,
+div.channel-button,
 #new-channel-button,
 #members-list li {
     display: block;
@@ -259,7 +260,7 @@ Members & Channels
     background-color: #ffa100;
 }
 
-#channels-list li div:hover {
+div.channel-button:hover {
     cursor: pointer;
     box-shadow:
             0 2px 5px rgba(0, 0, 0, 0.5),
@@ -268,6 +269,11 @@ Members & Channels
             0 20px 0 rgba(255, 255, 255, 0.03) inset,
             0 -20px 20px rgba(0, 0, 0, 0.15) inset,
             0 20px 20px rgba(255, 255, 255, 0.05) inset;
+}
+
+#active-channel {
+    background-color: #ededed;
+    color: #2e3732;
 }
 
 #members-list li:hover {

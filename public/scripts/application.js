@@ -27,6 +27,4 @@ function setChannelAsActive() {
             activeChannel.removeAttribute("style");
         }
     this.setAttribute("id", "active-channel");
-        this.style.backgroundColor = "#ededed";
-        this.style.color = "#2e3732";
 }
