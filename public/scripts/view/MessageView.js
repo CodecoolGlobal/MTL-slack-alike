@@ -80,7 +80,6 @@ export default class MessageView {
 
 
     clearMessages() {
-        console.log('clearing');
         let allMessagesContainer = document.getElementById('message-history');
         allMessagesContainer.innerHTML = '';
 

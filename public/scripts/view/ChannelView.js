@@ -34,12 +34,14 @@ export default class ChannelView{
                 allChannels.push(snap.val()[key].channelname);
             }
             console.log(allChannels);
-            console.log(this.user.activeChannel);
             this.handleChannelDeletion(allChannels);
+            console.log(this.user.activeChannel);
         }.bind(this));
     }
 
     displayOneChannel(channel){
+        var deleting = false;
+
         let listItem = document.createElement('li');
         let channelButton = document.createElement('div');
         channelButton.addEventListener("click", setChannelAsActive);
@@ -50,20 +52,28 @@ export default class ChannelView{
         channelButton.innerText = channel.channelname;
 
         channelButton.onclick = function(){
-            this.changeActiveChannelTo(channel.channelname);
-            console.log('channel changed to ' + channel.channelname);
+            console.log('odpalony channel button');
+            if (!deleting) {
+                console.log('zmiana dziala');
+                this.changeActiveChannelTo(channel.channelname);
+                console.log('channel changed to ' + channel.channelname);
+            }
         }.bind(this);
 
         let deleteButton = document.createElement('span');
         deleteButton.classList.add('channel-delete');
         deleteButton.innerText = 'x';
         deleteButton.onclick = function(){
-            this.deleteChannel(channel)
+            console.log('x dziala');
+            deleting = true;
+            this.deleteChannel(channel);
         }.bind(this);
 
         listItem.appendChild(channelButton);
         if (channel.channelname !== 'Octo Welcome') {
             channelButton.appendChild(deleteButton);
+        } else {
+            channelButton.setAttribute('id', 'active-channel');
         }
         document.getElementById('channels-list').appendChild(listItem);
     }
@@ -74,9 +84,10 @@ export default class ChannelView{
     }
 
     handleChannelDeletion(allChannels){
-        if (this.user.activeChannel !== null && !allChannels.includes(this.user.activeChannel))
+        if (this.user.activeChannel !== null && !allChannels.includes(this.user.activeChannel)) {
             alert('your channel was deleted, join another');
             this.user.activeChannel = 'Octo Welcome';
+        }
     }
 
 
