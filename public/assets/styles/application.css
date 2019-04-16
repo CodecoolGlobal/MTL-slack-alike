@@ -195,6 +195,7 @@ div #message-history {
     background-color: #393e46;
     z-index: 0;
     box-shadow: inset -1px -4px 7px 3px rgba(0,0,0,0.75);
+    text-align: justify;
 }
 
 /*
