@@ -259,6 +259,11 @@ div.channel-button,
     background-color: #ffa100;
 }
 
+div.channel-button,
+li.online {
+    word-break: break-word;
+}
+
 div.channel-button:hover {
     cursor: pointer;
     box-shadow:
