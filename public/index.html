@@ -5,8 +5,19 @@
 
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="assets/images/icon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
 
     <title>ZTML Login</title>
+
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icon/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/icon/site.webmanifest">
+    <link rel="mask-icon" href="assets/images/icon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="assets/images/icon/favicon.ico">
+
     <link rel="stylesheet" href="assets/styles/login.css"/>
 
 </head>
@@ -25,7 +36,6 @@
 
         <div id="login-form-container">
             <div id="login-form">
-                <label for="user-login-name">Name</label>
                 <button onclick="signInWithGoogle()" type="submit" id="login-button">Sign in with Google</button>
             </div>
         </div>
@@ -44,18 +54,7 @@
 <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-messaging.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-functions.js"></script>
 <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-storage.js"></script>
-<!--<script>-->
-    <!--// Initialize Firebase-->
-    <!--const config = {-->
-        <!--apiKey: "AIzaSyD9A0VUu5HP-VcJW2qUtdUt7p3s-JH-8cI",-->
-        <!--authDomain: "mtl-chat.firebaseapp.com",-->
-        <!--databaseURL: "https://mtl-chat.firebaseio.com",-->
-        <!--projectId: "mtl-chat",-->
-        <!--storageBucket: "mtl-chat.appspot.com",-->
-        <!--messagingSenderId: "718509635861"-->
-    <!--};-->
-    <!--firebase.initializeApp(config);-->
-  <!--</script>-->
+
 <script src="scripts/auth.js"></script>
 
 </html>
